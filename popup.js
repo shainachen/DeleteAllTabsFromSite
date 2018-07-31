@@ -1,9 +1,18 @@
 let deleteTabs = document.getElementById('deleteTabsFromSite');
+var hostname;
 
-deleteTabs.onclick = function(tab) {
+deleteTabs.onclick = function(tabDelete) {
 	console.log("clicked on popup");
-	chrome.tabs.query({currentWindow: true, url: '*://www.instagram.com/*'}, function(tabs){
+	chrome.tabs.query({active: true}, function(tab){
+		var url= tab[0].url;
+		hostname = (new URL(url)).hostname;
+		console.log(hostname);
+	});
+
+	chrome.tabs.query({currentWindow: true, url: '*://'+ hostname +'/*'}, function(tabs){
+		console.log("running query through hostnames");
 		for (i = 0; i < tabs.length; i++) { 
+			console.log("deleting tab" + tabs[i].id);
 			chrome.tabs.executeScript(
 				tabs[i].id,
 				{code: chrome.tabs.remove(tabs[i].id)}
@@ -11,25 +20,3 @@ deleteTabs.onclick = function(tab) {
 		}
 	});
 };
-
-
-/*    chrome.tabs.remove(tab.id, function(){
-      appendToLog('tab: ' + tabId + ' removed.');
-     });
-};
-
-
-/*chrome.storage.sync.get('color', function(data) {
-	changeColor.style.backgroundColor = data.color;
-	changeColor.setAttribute('value', data.color);
-});
-
-changeColor.onclick = function(element) {
-	let color = element.target.value;
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-		chrome.tabs.executeScript(
-			tabs[0].id,
-			{code: 'document.body.style.backgroundColor = "' + color + '";'});
-	});
-};
-*/
