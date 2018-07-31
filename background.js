@@ -1,6 +1,6 @@
-function test (tab) {
-  alert('The browser action was clicked! Yay!');
-}
+chrome.browserAction.onClicked.addListener(function(tab) {
+	chrome.tabs.remove(tab.id);
 
-chrome.runtime.onInstalled.addListener(test);
-
+  // Okay, the actual action should go here
+  // And look, we already have the required Tab object for free!
+});
