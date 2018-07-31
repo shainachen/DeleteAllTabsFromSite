@@ -2,11 +2,13 @@ let deleteTabs = document.getElementById('deleteTabsFromSite');
 
 deleteTabs.onclick = function(tab) {
 	console.log("clicked on popup");
-	chrome.tabs.query({active: true}, function(tabs){
-	chrome.tabs.executeScript(
-			tabs[0].id,
-			{code: chrome.tabs.remove(tabs[0].id)}
-);
+	chrome.tabs.query({currentWindow: true, url: '*://www.instagram.com/*'}, function(tabs){
+		for (i = 0; i < tabs.length; i++) { 
+			chrome.tabs.executeScript(
+				tabs[i].id,
+				{code: chrome.tabs.remove(tabs[i].id)}
+			);
+		}
 	});
 };
 
