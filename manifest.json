@@ -1,5 +1,5 @@
 {
-	"name": "Delete All Tabs From Site",
+	"name": "Close All Tabs From Site",
 	"version": "1.0",
 	"description": "Build an Extension!",
 	"permissions": ["activeTab", "tabs", "declarativeContent", "storage"],
