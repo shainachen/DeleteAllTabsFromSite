@@ -1,7 +1,7 @@
 {
 	"name": "Close All Tabs From Site",
 	"version": "1.0",
-	"description": "Build an Extension!",
+	"description": "Closes all tabs from the same site with a single click!",
 	"permissions": ["activeTab", "tabs", "declarativeContent", "storage"],
 	"browser_action": {
 		"default_popup": "popup.html",
