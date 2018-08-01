@@ -7,16 +7,17 @@ deleteTabs.onclick = function(tabDelete) {
 		var url= tab[0].url;
 		hostname = (new URL(url)).hostname;
 		console.log(hostname);
-	});
-
-	chrome.tabs.query({currentWindow: true, url: '*://'+ hostname +'/*'}, function(tabs){
-		console.log("running query through hostnames");
-		for (i = 0; i < tabs.length; i++) { 
-			console.log("deleting tab" + tabs[i].id);
-			chrome.tabs.executeScript(
-				tabs[i].id,
-				{code: chrome.tabs.remove(tabs[i].id)}
-			);
-		}
+		
+		chrome.tabs.query({currentWindow: true, url: '*://'+ hostname +'/*'}, function(tabs){
+			console.log("running query through hostnames");
+			for (i = 0; i < tabs.length; i++) { 
+				console.log("deleting tab" + tabs[i].id);
+				chrome.tabs.executeScript(
+					tabs[i].id,
+					{code: chrome.tabs.remove(tabs[i].id)}
+				);
+			}
+		});
+		
 	});
 };
