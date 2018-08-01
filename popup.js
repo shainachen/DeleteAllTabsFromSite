@@ -3,7 +3,7 @@ var hostname;
 
 deleteTabs.onclick = function(tabDelete) {
 	console.log("clicked on popup");
-	chrome.tabs.query({active: true}, function(tab){
+	chrome.tabs.query({active: true, currentWindow: true}, function(tab){
 		var url= tab[0].url;
 		hostname = (new URL(url)).hostname;
 		console.log(hostname);
@@ -18,6 +18,6 @@ deleteTabs.onclick = function(tabDelete) {
 				);
 			}
 		});
-		
+
 	});
 };
