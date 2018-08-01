@@ -9,7 +9,7 @@ The user navigates to an open tab of the website they would like to close all ta
 
 Then, the user clicks on the extension and a popup appears. The user then clicks on the button "close all tabs from site" to close all open tabs with the same host name. 
 
-![Example Popup](images/pic2.png)
+![Example Popup](images/pic3.png)
 
 
 ## Project Info
