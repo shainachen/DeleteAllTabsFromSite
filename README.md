@@ -6,7 +6,7 @@ This simple Google Chrome extension allows the user to close all tabs from a web
 ## How It Works
 The user navigates to an open tab of the website they would like to close all tabs from. 
 
-![Example Page of Open Tab to Use Extension on](https://drive.google.com/file/d/1b_IcaS8FIM3NnTNiK41DTQuuEqVKG-A2/view?usp=sharing)
+![Example Page of Open Tab to Use Extension on](images/pic0.png)
 
 Then, the user clicks on the extension and a popup appears.
 
